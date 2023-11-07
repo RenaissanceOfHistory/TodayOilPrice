@@ -1,0 +1,29 @@
+server:
+  port: 8766
+
+spring:
+  application:
+    name: gateway-to
+  redis:  # Redis
+    host: localhost
+    port: 6379
+    password:
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: localhost:8848
+    gateway: # Gateway
+      routes:
+      - id: api
+        uri: lb://consumer
+        predicates:
+          - Path=/**
+
+user:
+  white-list:
+    - /users/login
+    - /users/enroll
+    - /users/code
+    - /oil-prices/
+    - /favicon.ico

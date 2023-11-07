@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="today.oil.mapper.FareMapper">
+  <resultMap id="BaseResultMap" type="today.oil.model.Fare">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="cid" jdbcType="BIGINT" property="cid" />
+    <result column="fare_type" jdbcType="CHAR" property="fareType" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="out_type" jdbcType="TINYINT" property="outType" />
+    <result column="out_fare" jdbcType="DECIMAL" property="outFare" />
+    <result column="in_type" jdbcType="TINYINT" property="inType" />
+    <result column="in_fare" jdbcType="DECIMAL" property="inFare" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, cid, fare_type, add_time, out_type, out_fare, in_type, in_fare, info, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fare
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fare
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="today.oil.model.Fare">
+    insert into t_fare (id, cid, fare_type, 
+      add_time, out_type, out_fare, 
+      in_type, in_fare, info, 
+      create_time)
+    values (#{id,jdbcType=BIGINT}, #{cid,jdbcType=BIGINT}, #{fareType,jdbcType=CHAR}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{outType,jdbcType=TINYINT}, #{outFare,jdbcType=DECIMAL}, 
+      #{inType,jdbcType=TINYINT}, #{inFare,jdbcType=DECIMAL}, #{info,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="today.oil.model.Fare">
+    insert into t_fare
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="fareType != null">
+        fare_type,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="outType != null">
+        out_type,
+      </if>
+      <if test="outFare != null">
+        out_fare,
+      </if>
+      <if test="inType != null">
+        in_type,
+      </if>
+      <if test="inFare != null">
+        in_fare,
+      </if>
+      <if test="info != null">
+        info,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=BIGINT},
+      </if>
+      <if test="fareType != null">
+        #{fareType,jdbcType=CHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outType != null">
+        #{outType,jdbcType=TINYINT},
+      </if>
+      <if test="outFare != null">
+        #{outFare,jdbcType=DECIMAL},
+      </if>
+      <if test="inType != null">
+        #{inType,jdbcType=TINYINT},
+      </if>
+      <if test="inFare != null">
+        #{inFare,jdbcType=DECIMAL},
+      </if>
+      <if test="info != null">
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="today.oil.model.Fare">
+    update t_fare
+    <set>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=BIGINT},
+      </if>
+      <if test="fareType != null">
+        fare_type = #{fareType,jdbcType=CHAR},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outType != null">
+        out_type = #{outType,jdbcType=TINYINT},
+      </if>
+      <if test="outFare != null">
+        out_fare = #{outFare,jdbcType=DECIMAL},
+      </if>
+      <if test="inType != null">
+        in_type = #{inType,jdbcType=TINYINT},
+      </if>
+      <if test="inFare != null">
+        in_fare = #{inFare,jdbcType=DECIMAL},
+      </if>
+      <if test="info != null">
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="today.oil.model.Fare">
+    update t_fare
+    set cid = #{cid,jdbcType=BIGINT},
+      fare_type = #{fareType,jdbcType=CHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      out_type = #{outType,jdbcType=TINYINT},
+      out_fare = #{outFare,jdbcType=DECIMAL},
+      in_type = #{inType,jdbcType=TINYINT},
+      in_fare = #{inFare,jdbcType=DECIMAL},
+      info = #{info,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByCid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_fare
+    where cid = #{cid}
+  </select>
+
+  <delete id="deleteByCid">
+    delete from t_fare
+    where cid = #{cid}
+  </delete>
+</mapper>

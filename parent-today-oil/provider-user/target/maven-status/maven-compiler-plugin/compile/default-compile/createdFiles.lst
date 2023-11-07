@@ -1,0 +1,11 @@
+today\oil\utils\EncryptUtil.class
+today\oil\config\RedisConfig.class
+today\oil\UserApp.class
+today\oil\mapper\UserMapper.class
+today\oil\utils\EncryptUtil$EncryptType.class
+today\oil\service\impl\UserServiceImpl.class
+today\oil\service\RemoteFileService.class
+today\oil\controller\UserController.class
+today\oil\mapper\UserDetailMapper.class
+today\oil\service\fallback\RemoteFileServiceFallback.class
+today\oil\service\UserService.class

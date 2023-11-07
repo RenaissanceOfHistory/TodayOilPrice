@@ -1,0 +1,11 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: provider-file
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: localhost:8848

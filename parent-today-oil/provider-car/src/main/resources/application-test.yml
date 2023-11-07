@@ -1,0 +1,23 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: provider-car
+  datasource: # MySQL
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${test.host}:3306/db_todayoil?serverTimezone=UTC
+    username: root
+    password: 8019
+  redis:  # Redis
+    host: ${test.host}
+    port: 6379
+    password: r887GGYHJd
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: ${test.host}:8848
+
+test:
+  host: 192.168.227.134

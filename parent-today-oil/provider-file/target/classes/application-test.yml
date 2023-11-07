@@ -1,0 +1,15 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: provider-file
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: ${test.host}:8848
+
+
+test:
+  host: 192.168.227.134

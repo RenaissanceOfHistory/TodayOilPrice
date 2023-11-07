@@ -1,0 +1,30 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: provider-user
+  datasource: # MySQL
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${prod.host}:3306/db_todayoil?serverTimezone=UTC
+    username: root
+    password: 8019
+  redis:  # Redis
+    host: ${prod.host}
+    port: 6379
+    password: r887GGYHJd
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: ${prod.host}:8848
+
+feign:  # Feign
+  client:
+    config:
+      default:  # 设置默认超时时间（防止首次调用超时）
+        connect-timeout: 5000
+        read-timeout: 5000
+
+prod:
+  host: 192.168.227.134

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="today.oil.mapper.OilPriceMapper">
+    <select id="selectProvinceName" resultType="java.lang.String">
+        select `name`
+        from t_province;
+    </select>
+
+    <update id="CTProvince">
+        create table if not exists t_province (
+          `name` varchar(255) not null key comment '省份名',
+          create_time timestamp not null default current_timestamp comment '创建时间'
+        ) charset=utf8 comment='省份表';
+    </update>
+
+    <update id="dropProvince">
+        drop table if exists t_province;
+    </update>
+
+    <update id="dropTableByProvince">
+        drop table if exists t_province_oil_price_${provinceName};
+    </update>
+
+    <update id="dropTableByLabel">
+        drop table if exists t_label_oil_price_${label};
+    </update>
+
+    <insert id="insertProvince">
+        insert into t_province (`name`) values
+        <foreach collection="provinceList" item="name" separator=",">
+            (#{name})
+        </foreach>
+    </insert>
+
+    <update id="CTProvinceOilPrice">
+      create table if not exists t_province_oil_price_${provinceName} (
+        id bigint unsigned not null key auto_increment comment '自增ID',
+        area varchar(255) not null comment '地区',
+        label_89 decimal(15, 2) not null default 0 comment '89号油价',
+        label_92 decimal(15, 2) not null default 0 comment '92号油价',
+        label_95 decimal(15, 2) not null default 0 comment '95号油价',
+        label_0 decimal(15, 2) not null default 0 comment '0号油价',
+        create_time timestamp not null default current_timestamp comment '创建时间'
+      ) charset=utf8 comment='油价信息表';
+    </update>
+
+    <insert id="insertProvinceOilPrice">
+        insert into t_province_oil_price_${provinceName}
+          (area, label_89, label_92, label_95, label_0) values
+          <foreach collection="provinceList" item="province" separator=",">
+              (#{province.area}, #{province.label_89}, #{province.label_92}, #{province.label_95}, #{province.label_0})
+          </foreach>
+    </insert>
+
+    <update id="CTLabel">
+        create table if not exists t_label_oil_price_${label} (
+          id bigint unsigned not null key auto_increment comment '自增ID',
+          area varchar(255) not null comment '地区',
+          price decimal(15, 2) not null default 0 comment '油价',
+          create_time timestamp not null default current_timestamp comment '创建时间'
+        ) charset=utf8 comment='标号油价信息表';
+    </update>
+
+    <insert id="insertLabelOilPrice">
+        insert into t_label_oil_price_${label} (area, price) values
+        <foreach collection="labelList" item="item" separator=",">
+            (#{item.area}, #{item.price})
+        </foreach>
+    </insert>
+
+    <select id="selectByLabel" resultType="java.util.Map">
+        select area, price
+        from t_label_oil_price_${label}
+        where create_time >= #{date}
+    </select>
+
+    <select id="selectByProvince" resultType="java.util.Map">
+        select area, label_89, label_92, label_95, label_0
+        from t_province_oil_price_${provinceName}
+        where create_time >= #{date}
+    </select>
+</mapper>

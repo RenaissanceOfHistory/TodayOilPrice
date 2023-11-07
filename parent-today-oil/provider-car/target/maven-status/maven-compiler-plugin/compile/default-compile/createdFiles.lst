@@ -1,0 +1,6 @@
+today\oil\service\CarService.class
+today\oil\config\RedisConfig.class
+today\oil\mapper\CarMapper.class
+today\oil\service\impl\CarServiceImpl.class
+today\oil\controller\CarController.class
+today\oil\CarApp.class

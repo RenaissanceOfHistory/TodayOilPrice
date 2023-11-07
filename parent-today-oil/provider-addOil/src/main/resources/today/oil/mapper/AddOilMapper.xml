@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="today.oil.mapper.AddOilMapper">
+  <resultMap id="BaseResultMap" type="today.oil.model.AddOil">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="cid" jdbcType="BIGINT" property="cid" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="mile" jdbcType="DOUBLE" property="mile" />
+    <result column="balance" jdbcType="DECIMAL" property="balance" />
+    <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
+    <result column="volume" jdbcType="DOUBLE" property="volume" />
+    <result column="leftover" jdbcType="TINYINT" property="leftover" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="forgot" jdbcType="CHAR" property="forgot" />
+    <result column="sta_id" jdbcType="BIGINT" property="staId" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, cid, add_time, mile, balance, unit_price, volume, leftover, note, forgot, sta_id, 
+    info, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_addoil
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_addoil
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="today.oil.model.AddOil">
+    insert into t_addoil (id, cid, add_time, 
+      mile, balance, unit_price, 
+      volume, leftover, note, 
+      forgot, sta_id, info, create_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{cid,jdbcType=BIGINT}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{mile,jdbcType=DOUBLE}, #{balance,jdbcType=DECIMAL}, #{unitPrice,jdbcType=DECIMAL}, 
+      #{volume,jdbcType=DOUBLE}, #{leftover,jdbcType=TINYINT}, #{note,jdbcType=VARCHAR}, 
+      #{forgot,jdbcType=CHAR}, #{staId,jdbcType=BIGINT}, #{info,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="today.oil.model.AddOil">
+    insert into t_addoil
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="mile != null">
+        mile,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="unitPrice != null">
+        unit_price,
+      </if>
+      <if test="volume != null">
+        volume,
+      </if>
+      <if test="leftover != null">
+        leftover,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="forgot != null">
+        forgot,
+      </if>
+      <if test="staId != null">
+        sta_id,
+      </if>
+      <if test="info != null">
+        info,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mile != null">
+        #{mile,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="unitPrice != null">
+        #{unitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DOUBLE},
+      </if>
+      <if test="leftover != null">
+        #{leftover,jdbcType=TINYINT},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="forgot != null">
+        #{forgot,jdbcType=CHAR},
+      </if>
+      <if test="staId != null">
+        #{staId,jdbcType=BIGINT},
+      </if>
+      <if test="info != null">
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="today.oil.model.AddOil">
+    update t_addoil
+    <set>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mile != null">
+        mile = #{mile,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="unitPrice != null">
+        unit_price = #{unitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        volume = #{volume,jdbcType=DOUBLE},
+      </if>
+      <if test="leftover != null">
+        leftover = #{leftover,jdbcType=TINYINT},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="forgot != null">
+        forgot = #{forgot,jdbcType=CHAR},
+      </if>
+      <if test="staId != null">
+        sta_id = #{staId,jdbcType=BIGINT},
+      </if>
+      <if test="info != null">
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="today.oil.model.AddOil">
+    update t_addoil
+    set cid = #{cid,jdbcType=BIGINT},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      mile = #{mile,jdbcType=DOUBLE},
+      balance = #{balance,jdbcType=DECIMAL},
+      unit_price = #{unitPrice,jdbcType=DECIMAL},
+      volume = #{volume,jdbcType=DOUBLE},
+      leftover = #{leftover,jdbcType=TINYINT},
+      note = #{note,jdbcType=VARCHAR},
+      forgot = #{forgot,jdbcType=CHAR},
+      sta_id = #{staId,jdbcType=BIGINT},
+      info = #{info,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByCid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_addoil
+    where cid = #{cid}
+  </select>
+
+  <delete id="deleteByCid" parameterType="java.lang.Long">
+    delete from t_addoil
+    where cid = #{cid}
+  </delete>
+
+  <select id="selectMaxMileByCid" resultType="java.lang.Double">
+    select max(mile)
+    from t_addoil
+    where cid = #{cid}
+  </select>
+</mapper>

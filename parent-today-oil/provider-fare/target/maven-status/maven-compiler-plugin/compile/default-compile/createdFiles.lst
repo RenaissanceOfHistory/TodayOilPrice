@@ -1,0 +1,6 @@
+today\oil\config\RedisConfig.class
+today\oil\service\impl\FareServiceImpl.class
+today\oil\mapper\FareMapper.class
+today\oil\service\FareService.class
+today\oil\FareApp.class
+today\oil\controller\FareController.class

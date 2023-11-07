@@ -1,0 +1,10 @@
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\mapper\UserMapper.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\mapper\UserDetailMapper.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\service\UserService.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\config\RedisConfig.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\UserApp.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\controller\UserController.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\service\impl\UserServiceImpl.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\service\RemoteFileService.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\utils\EncryptUtil.java
+D:\MyProgram\workplace-01\parent-today-oil\provider-user\src\main\java\today\oil\service\fallback\RemoteFileServiceFallback.java

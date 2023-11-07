@@ -1,0 +1,23 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: provider-fare
+  datasource: # MySQL
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${prod.host}:3306/db_todayoil?serverTimezone=UTC
+    username: root
+    password: 8019
+  redis:  # Redis
+    host: ${prod.host}
+    port: 6379
+    password: r887GGYHJd
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: ${prod.host}:8848
+
+prod:
+  host: 192.168.227.134

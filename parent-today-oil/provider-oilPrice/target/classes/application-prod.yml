@@ -1,0 +1,30 @@
+server:
+  port: 8012
+
+spring:
+  application:
+    name: provider-oilPrice
+  datasource: # MySQL
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${prod.host}:3306/db_todayoil?serverTimezone=UTC
+    username: root
+    password: 8019
+  redis:  # Redis
+    host: ${prod.host}
+    port: 6379
+    password: r887GGYHJd
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: ${prod.host}:8848
+
+sidecar:  # Python 服务
+  ip: localhost
+  port: 8000
+  health-check-url: http://${sidecar.ip}:${sidecar.port}/health.json
+
+
+
+prod:
+  host: 192.168.227.134

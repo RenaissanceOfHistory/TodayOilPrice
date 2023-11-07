@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /today-oil/v1
+
+spring:
+  application:
+    name: consumer
+  redis:  # Redis
+    host: ${prod.host}
+    port: 6379
+    password: r887GGYHJd
+  cloud:
+    nacos:  # Nacos
+      discovery:
+        group: todayOil
+        server-addr: ${prod.host}:8848
+    sentinel: # Sentinel
+      transport:
+        dashboard: ${prod.host}:8858
+
+feign:  # Feign
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:  # 设置默认超时时间（防止首次调用超时）
+        connect-timeout: 5000
+        read-timeout: 5000
+
+
+prod:
+  host: 192.168.227.134

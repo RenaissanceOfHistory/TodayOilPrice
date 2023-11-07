@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "user",
+      "type": "today.oil.config.WhiteListConfig",
+      "sourceType": "today.oil.config.WhiteListConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "user.white-list",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "today.oil.config.WhiteListConfig"
+    }
+  ],
+  "hints": []
+}

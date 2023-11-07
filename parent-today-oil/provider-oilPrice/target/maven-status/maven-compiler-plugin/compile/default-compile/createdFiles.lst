@@ -1,0 +1,7 @@
+today\oil\mapper\OilPriceMapper.class
+today\oil\config\RedisConfig.class
+today\oil\service\impl\OilPriceServiceImpl.class
+today\oil\config\RestTemplateConfig.class
+today\oil\service\OilPriceService.class
+today\oil\controller\OilPriceController.class
+today\oil\OilPriceApp.class
