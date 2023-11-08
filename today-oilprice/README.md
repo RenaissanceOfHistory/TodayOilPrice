@@ -29,9 +29,7 @@
         </ul>
       </div>
       <div>
-        <ul class="content-list">
-          <li>main.py-启动脚本</li>
-        </ul>
+        <h3>main.py-启动脚本</h3>
       </div>
     </article>
   </section>
